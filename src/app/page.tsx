@@ -21,6 +21,7 @@ export default function Home() {
           display: "inline-block",
           marginTop: "3rem",
         }}
+        onClick={fetchCatImage}
       >
         今日の猫さん
       </button>
