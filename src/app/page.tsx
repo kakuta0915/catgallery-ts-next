@@ -12,11 +12,16 @@ const Home: NextPage = () => {
     try {
       const res = await fetch("https://api.thecatapi.com/v1/images/search");
       const result = await res.json();
-      console.log(result);
       setCatImage(result[0].url);
+      return result[0];
     } catch (error) {
       console.error("Error fetching cat image:", error);
     }
+  };
+
+  const handleClick = async () => {
+    const catImage = await fetchCatImage();
+    console.log(catImage);
   };
 
   return (
@@ -36,7 +41,7 @@ const Home: NextPage = () => {
           display: "inline-block",
           marginTop: "3rem",
         }}
-        onClick={fetchCatImage}
+        onClick={handleClick}
       >
         今日の猫さん
       </button>
